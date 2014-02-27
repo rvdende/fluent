@@ -1,0 +1,57 @@
+<!DOCTYPE html><html><head>        
+    <meta charset="utf-8" />    
+    <title>httpserver</title>    
+    <script src="fluent2d.js"></script>
+</head><body>    
+
+    <canvas id="myCanvas" width="800" height="500"></canvas> 
+
+    <script>
+    window.onload = function(){
+        var canvas = document.getElementById("myCanvas");
+        var context = canvas.getContext('2d');
+
+        var headX = canvas.width / 2;
+        var headY = canvas.height / 2;
+        
+        var f2 = new Fluent2D(context);
+
+        function draw(context) {
+            if (f2.newframe()) {
+               // f2.context.lineWidth = 2;
+                //context.lineCap = "round";
+                //context.lineJoin = "round";
+                //context.strokeStyle = "green";
+                //context.stroke();
+
+                f2.clearRect(0, 0, canvas.width, canvas.height);      
+                //context.fillStyle = 'green';
+                //context.fill();
+                //context.lineWidth = 5;
+                //context.strokeStyle = '#003300';
+
+                
+                //f2.line(Math.random()*500, Math.random()*500, Math.random()*500, Math.random()*500 );    
+                //f2.circle(300, 300, 150);
+                //f2.circle(500, 300, 150);
+                
+                
+                var circles = [{x: 300,y:300,r:150},{x:Math.random()*1000, y:300,r:160}]
+                f2.circle(circles[0]);
+                f2.circle(circles[1]);
+
+                var intersections = f2.intersectCircles(circles);
+                console.log(intersections)
+             }
+            
+            f2.nextframe(draw, context); //draws every following frame
+
+        }
+
+        
+        f2.nextframe(draw, context); //draws every following frame
+    };
+
+    </script>
+
+</body></html>

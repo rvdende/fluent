@@ -1,4 +1,4 @@
-// calculates the lens dimensions for a parabolic reflector telescope
+// telescope.js - calculates the lens dimensions for a parabolic reflector telescope
 
 //config this:
 var telescope = {
